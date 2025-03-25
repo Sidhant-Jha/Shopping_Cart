@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_cart/bloc/CartBloc/shop_bloc.dart';
+import 'package:shopping_cart/bloc/CartBloc/shop_event.dart';
 // import 'package:shopping/bloc/FavouritesCubit/favourites_cubit.dart';
 // import 'package:shopping/bloc/ProductBloc/product_bloc.dart';
 // import 'package:shopping/bloc/ProductCategoryBloc/category_bloc.dart';
@@ -22,6 +24,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ProductBloc(),),
         BlocProvider(create: (context) => CategoryBloc(),),
         BlocProvider(create: (context) => FavouritesCubit(),),
+        BlocProvider(create: (context) => ShopBloc()..add(LoadShopData())),
+
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

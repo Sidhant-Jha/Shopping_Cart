@@ -1,28 +1,32 @@
-part of 'shop_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:shopping_cart/model/products_model.dart';
 
 abstract class ShopEvent extends Equatable {
   const ShopEvent();
-
+  
   @override
   List<Object> get props => [];
 }
 
-class ShopPageInitializedEvent extends ShopEvent {}
+class LoadShopData extends ShopEvent {}
 
-class ItemAddingCartEvent extends ShopEvent {
-  List<ProductsModel> cartItems;
+class AddToCart extends ShopEvent {
+  final ProductsModel product;
+  
+  const AddToCart(this.product);
 
-  ItemAddingCartEvent({required this.cartItems});
+  @override
+  List<Object> get props => [product];
 }
 
-class ItemAddedCartEvent extends ShopEvent {
-  List<ProductsModel> cartItems;
+class RemoveFromCart extends ShopEvent {
+  final ProductsModel product;
+  final bool removeAll;
+  
+  const RemoveFromCart(this.product, {this.removeAll = false});
 
-  ItemAddedCartEvent({required this.cartItems});
+  @override
+  List<Object> get props => [product, removeAll];
 }
 
-class ItemDeleteCartEvent extends ShopEvent {
-  List<ProductsModel> cartItems;
-  int index;
-  ItemDeleteCartEvent({required this.cartItems, required this.index});
-}
+class ClearCart extends ShopEvent {}

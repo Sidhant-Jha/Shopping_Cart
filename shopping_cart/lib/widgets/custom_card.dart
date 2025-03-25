@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_cart/bloc/CartBloc/shop_bloc.dart';
+import 'package:shopping_cart/bloc/CartBloc/shop_event.dart';
 import 'package:shopping_cart/bloc/FavouritesCubit/favourites_cubit.dart';
 import 'package:shopping_cart/bloc/ProductBloc/product_state.dart';
 import 'package:shopping_cart/model/products_model.dart';
@@ -192,11 +194,7 @@ class CustomCard extends StatelessWidget {
                               maxWidth: cardWidth / 2,
                             ),
                             child: TextButton(
-                              // style: ButtonStyle(
-                              //   backgroundColor: WidgetStateProperty.all(
-                              //     const Color(0xFFF58686),
-                              //   ),
-                              // ),
+                  
                               style: TextButton.styleFrom(
                                 backgroundColor: const Color(0xFFF58686),
                                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 12), // smaller padding
@@ -204,11 +202,13 @@ class CustomCard extends StatelessWidget {
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap, // reduces tap area
                               ),
                               onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             ProductInformation(product: product)));
+                                context.read<ShopBloc>().add(AddToCart(product));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('${product.title} added to cart'),
+                                duration: const Duration(seconds: 1),
+                              ),
+                            );
                               },
                               child: const Text(
                                 'Add',
