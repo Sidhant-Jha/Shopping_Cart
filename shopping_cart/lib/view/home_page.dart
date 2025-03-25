@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shopping_cart/view/sections/favourites_section.dart';
 import 'package:shopping_cart/view/sections/home_section.dart';
 import 'package:shopping_cart/view/sections/profile_section.dart';
+import 'package:shopping_cart/widgets/custom_cart_icon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.username, required this.email});
@@ -25,13 +26,8 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         title: Text('Hello, ${widget.username}'),
         actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
-              size: 30,
-            ),
-          ),
+          CustomCartIcon(),
+          SizedBox(width: 10,)
         ],
       ),
       body: PageView(
@@ -68,3 +64,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
