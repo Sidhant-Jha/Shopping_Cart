@@ -16,21 +16,21 @@ A Flutter-based Shopping Cart application that integrates with a REST API to fet
    - Reusable components like ProductCard, CartItemCard, etc.o
 
 
-🔧 Tech Stack
-Flutter
-Dart
-BLoC (flutter_bloc)
-REST API (dummyjson.com)
-Stateful Widgets + BlocBuilder
-Material Design
+**🔧 Tech Stack**
+- Flutter
+- Dart
+- BLoC (flutter_bloc)
+- REST API (dummyjson.com)
+- Stateful Widgets + BlocBuilder
+- Material Design
 
-🚀 Getting Started
-Clone the repository
-git clone https://github.com/your-username/shopping_cart_app.git
-Get dependencies
-flutter pub get
-Run the app
-flutter run
+**🚀 Getting Started**
+- Clone the repository
+    - git clone https://github.com/your-username/shopping_cart_app.git
+- Get dependencies
+    - flutter pub get
+- Run the app
+    - flutter run
 
 
 
