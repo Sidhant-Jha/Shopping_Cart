@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:http/http.dart';
 import 'package:shopping_cart/model/category_list_model.dart';
 import 'package:shopping_cart/model/data_model.dart';

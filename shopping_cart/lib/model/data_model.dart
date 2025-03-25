@@ -1,9 +1,4 @@
 import 'dart:convert';
-
-import 'package:shopping_cart/model/products_model.dart';
-import 'package:shopping_cart/model/products_model.dart';
-
-
 import 'package:shopping_cart/model/products_model.dart';
 
 class DataModel {
@@ -30,11 +25,9 @@ class DataModel {
       limit: map['limit'] ?? 0,
     );
   }
-
-  // Helper method to check if there are more items to load
+  
   bool get hasMore => (skip + limit) < total;
 
-  // Method to merge with another DataModel (useful for pagination)
   DataModel merge(DataModel other) {
     return DataModel(
       products: [...products, ...other.products],

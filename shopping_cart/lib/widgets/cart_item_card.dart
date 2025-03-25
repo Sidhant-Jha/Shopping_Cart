@@ -25,7 +25,6 @@ class CartItemCard extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         child: Row(
           children: [
-            // Product Image
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(
@@ -36,53 +35,84 @@ class CartItemCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            
-            // Product Details
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     product.title,
+                    maxLines: 1,
                     style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                        fontSize: 16,
+                        fontWeight:
+                            FontWeight.bold),
                   ),
-                  const SizedBox(height: 4),
                   Text(
-                    '\$${product.discountPrice.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.green,
+                    maxLines: 1,
+                    product.brand == 'null'
+                        ? ''
+                        : product.brand,
+                    style: const TextStyle(  
+                      fontSize: 14,
                     ),
                   ),
+                  const SizedBox(height: 7),
+                  Row(
+                    children: [
+                      Text('\$${product.originalPrice.toString()}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 13
+                            ),),
+                      Text(
+                        '\$${product.discountPrice.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                      child: Text(
+                        '${product.discountPercentage}% OFF',
+                        style: TextStyle(
+                          color: Colors.red
+                        ),
+                      ),
+                    ),
+                  SizedBox(height: 50,)
                 ],
               ),
             ),
             
-            // Quantity Controls
-            Row(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: onDecrease,
+                  icon: const Icon(Icons.delete_outline, color: Colors.red),
+                  onPressed: onRemove,
                 ),
-                Text(quantity.toString(), style: const TextStyle(fontSize: 16)),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: onIncrease,
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: onDecrease,
+                    ),
+                    Text(quantity.toString(), style: const TextStyle(fontSize: 16)),
+                    IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: onIncrease,
+                    ),
+                  ],
                 ),
+                
               ],
-            ),
-            
-            // Remove Button
-            IconButton(
-              icon: const Icon(Icons.delete_outline, color: Colors.red),
-              onPressed: onRemove,
-            ),
+            )
           ],
         ),
       ),

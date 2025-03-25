@@ -100,7 +100,6 @@ class CartPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Amount Price'),
-              // const SizedBox(height: 4),
               Spacer(),
               Text(
                 '\$${state.totalPrice.toStringAsFixed(2)}',
@@ -134,7 +133,7 @@ class CartPage extends StatelessWidget {
                     backgroundColor: Colors.white,
                   ),
                   Text(
-                    totalItems.toString(), // dynamic count
+                    totalItems.toString(), 
                     style: const TextStyle(
                       color: Colors.pinkAccent,
                       fontWeight: FontWeight.bold,
@@ -153,79 +152,3 @@ class CartPage extends StatelessWidget {
 
 }
       
-//       Column(
-//         children: [
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               const Text('Subtotal', style: TextStyle(fontSize: 16)),
-//               Text('\$${state.totalPrice.toStringAsFixed(2)}', 
-//                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-//             ],
-//           ),
-//           const SizedBox(height: 8),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               const Text('Total Items', style: TextStyle(fontSize: 16)),
-//               Text(totalItems.toString(), 
-//                   style: const TextStyle(fontSize: 16)),
-//             ],
-//           ),
-//           const SizedBox(height: 16),
-//           SizedBox(
-//             width: double.infinity,
-//             child: ElevatedButton(
-//   style: ElevatedButton.styleFrom(
-//     backgroundColor: Colors.pinkAccent,
-//     shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadius.circular(20),
-//     ),
-//     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-//   ),
-//   onPressed: () {
-//     // Handle checkout
-//   },
-//   child: Row(
-//     mainAxisSize: MainAxisSize.min,
-//     children: [
-//       const Text(
-//         "Check Out",
-//         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-//       ),
-//       const SizedBox(width: 8),
-//       Stack(
-//         alignment: Alignment.center,
-//         children: [
-//           const CircleAvatar(
-//             radius: 12,
-//             backgroundColor: Colors.white,
-//           ),
-//           Text(
-//             totalItems.toString(), // dynamic count
-//             style: TextStyle(
-//               color: Colors.pinkAccent,
-//               fontWeight: FontWeight.bold,
-//               fontSize: 12,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ],
-//   ),
-// )
-// ,
-            // child: ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     padding: const EdgeInsets.symmetric(vertical: 16),
-            //     backgroundColor: Colors.blue,
-            //   ),
-            //   onPressed: () {
-            //     // Handle checkout
-            //   },
-            //   child: const Text('Checkout', 
-            //       style: TextStyle(color: Colors.white, fontSize: 18)),
-            // ),
-    //     ],
-    //   ),
-    // );

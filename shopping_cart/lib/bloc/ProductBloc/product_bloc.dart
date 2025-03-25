@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_cart/bloc/ProductBloc/product_event.dart';
 import 'package:shopping_cart/bloc/ProductBloc/product_state.dart';
@@ -15,7 +13,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
 
   final ApiService _apiService = ApiService();
-  final int _perPage = 5; // Items per load
+  final int _perPage = 5; 
 
   FutureOr<void> _onGetInitialProducts(
       ProductEventGetInitialProducts event, Emitter<ProductState> emit) async {
@@ -29,7 +27,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         Map<int, bool> hasMore = {};
         Map<int, int> currentPage = {};
 
-        // Load initial data for each category
         for (int i = 0; i < categoriesList.categories.length; i++) {
           String section = categoriesList.categories[i];
           DataModel? dataModel = await _apiService.getProductsByCategory(section, limit: _perPage);
@@ -61,7 +58,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     final currentState = state as ProductStateLoadedState;
     final categoryIndex = event.categoryIndex;
 
-    // If no more items, return
     if (!currentState.hasMore[categoryIndex]!) return;
 
     emit(ProductStateLoadingState(isFirstLoad: false));
@@ -77,7 +73,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       );
 
       if (newData != null) {
-        // Merge new products with existing ones
         final updatedData = Map<int, DataModel>.from(currentState.data);
         updatedData[categoryIndex] = DataModel(
           products: [
@@ -88,8 +83,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           skip: newData.skip,
           limit: newData.limit,
         );
-
-        // Update state
+        
         emit(currentState.copyWith(
           data: updatedData,
           hasMore: {

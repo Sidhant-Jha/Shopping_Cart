@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         items: const <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.favorite, size: 30),
-          Icon(Icons.person, size: 30), // Updated icon
+          Icon(Icons.person, size: 30),
         ],
         index: _index,
         height: 55,

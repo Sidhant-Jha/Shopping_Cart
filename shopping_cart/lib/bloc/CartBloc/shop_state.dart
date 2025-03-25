@@ -1,6 +1,3 @@
-// part of 'shop_bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:shopping_cart/model/products_model.dart';
 
 import 'package:equatable/equatable.dart';
 import 'package:shopping_cart/model/products_model.dart';

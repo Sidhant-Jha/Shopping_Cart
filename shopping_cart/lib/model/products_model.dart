@@ -58,8 +58,6 @@ class ProductsModel {
       originalPrice: (map['price'] as num).toDouble(),
       discountPrice: double.parse((((map['price'] as num).toDouble()) - (((map['discountPercentage'] as num).toDouble()/100)*(map['price'] as num).toDouble()))
       .toStringAsFixed(2)),
-      
-      // (((map['price'] as num).toDouble()) - (((map['discountPercentage'] as num).toDouble()/100)*(map['price'] as num).toDouble()))
       rating: (map['rating']?? 0).toDouble(),
       discountPercentage: (map['discountPercentage'] as num).toDouble(),
       stock: map['stock'] as int,

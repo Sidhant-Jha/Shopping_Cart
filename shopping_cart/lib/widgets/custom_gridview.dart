@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/model/products_model.dart';
-import 'package:shopping_cart/view/product_screens/product_information.dart';
 import 'package:shopping_cart/widgets/custom_card.dart';
 
 class CustromProductGridView extends StatelessWidget {

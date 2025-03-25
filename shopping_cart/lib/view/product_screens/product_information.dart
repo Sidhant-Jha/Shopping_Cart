@@ -17,15 +17,6 @@ class ProductInformation extends StatelessWidget {
           product.title,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: const Icon(
-        //       Icons.shopping_cart,
-        //       size: 30,
-        //     ),
-        //   )
-        // ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -38,7 +29,7 @@ class ProductInformation extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Center(
                     child: AspectRatio(
-                      aspectRatio: 1, // Adjust the aspect ratio if needed
+                      aspectRatio: 1,
                       child: Image(
                           image: NetworkImage(product.images[index]),
                           fit: BoxFit.cover,
@@ -165,11 +156,6 @@ class ProductInformation extends StatelessWidget {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   onPressed: () {},
-      //   label: const Text('Buy',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-      //   backgroundColor: Colors.greenAccent,
-      // ),
     );
   }
 }

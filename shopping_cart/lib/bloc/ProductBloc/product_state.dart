@@ -11,8 +11,8 @@ class ProductStateLoadingState extends ProductState {
 class ProductStateLoadedState extends ProductState {
   final Map<int, DataModel> data;
   final CategoryListModel categoryListModel;
-  final Map<int, bool> hasMore; // To track which categories have more items
-  final Map<int, int> currentPage; // To track current page for each category
+  final Map<int, bool> hasMore; 
+  final Map<int, int> currentPage;
 
   ProductStateLoadedState({
     required this.categoryListModel,

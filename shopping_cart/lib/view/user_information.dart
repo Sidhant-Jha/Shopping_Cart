@@ -60,7 +60,7 @@ class _UserInformationState extends State<UserInformation> {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Rounded corners
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 elevation: 5,
                 textStyle: const TextStyle(

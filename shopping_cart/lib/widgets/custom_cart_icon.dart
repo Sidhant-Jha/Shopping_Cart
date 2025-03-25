@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_cart/bloc/CartBloc/shop_bloc.dart';
 import 'package:shopping_cart/bloc/CartBloc/shop_state.dart';
 import 'package:shopping_cart/view/cart_page.dart';
-import 'package:shopping_cart/view/cart_page.dart';
 
 class CustomCartIcon extends StatelessWidget {
   const CustomCartIcon({

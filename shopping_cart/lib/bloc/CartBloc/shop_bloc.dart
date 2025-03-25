@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:shopping_cart/bloc/CartBloc/shop_event.dart';
 import 'package:shopping_cart/bloc/CartBloc/shop_state.dart';
 import 'package:shopping_cart/model/products_model.dart';
@@ -13,7 +12,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     on<ClearCart>(_onClearCart);
   }
 
-  final Map<ProductsModel, int> _cartItems = {};  // Changed to Map
+  final Map<ProductsModel, int> _cartItems = {}; 
   List<ProductsModel> _products = [];
 
   Future<void> _onLoadShopData(
@@ -22,7 +21,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
   ) async {
     emit(ShopLoading());
     try {
-      _products = []; // Initialize with empty list
+      _products = [];
       
       emit(ShopLoaded(
         products: _products,
@@ -42,8 +41,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
 
     final currentState = state as ShopLoaded;
     emit(CartUpdating(Map.from(_cartItems)));
-    
-    // Add or increment quantity
+
     if (_cartItems.containsKey(event.product)) {
       _cartItems[event.product] = _cartItems[event.product]! + 1;
     } else {
